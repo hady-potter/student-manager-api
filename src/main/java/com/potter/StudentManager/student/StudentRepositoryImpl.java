@@ -24,7 +24,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 	}
 
 	@Override
-	public void update(final Student student) {
+	public void update(Student student) {
 		students.put(student.getId(), student);
 	}
 
