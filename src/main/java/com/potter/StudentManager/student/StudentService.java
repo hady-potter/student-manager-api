@@ -9,6 +9,6 @@ public interface StudentService {
 	StudentDto findById(String studentId);
 	StudentDto update(String id, StudentDto studentDto);
 	void delete(String studentId);
-	List<Student> getAll();
+	List<StudentDto> getAll();
 
 }

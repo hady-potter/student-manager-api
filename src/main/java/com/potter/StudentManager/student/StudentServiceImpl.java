@@ -1,5 +1,6 @@
 package com.potter.studentmanager.student;
 
+import com.potter.studentmanager.utils.StudentFactory;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -44,7 +45,10 @@ public class StudentServiceImpl implements StudentService{
 	}
 
 	@Override
-	public List<Student> getAll() {
-		return repository.getAll();
+	public List<StudentDto> getAll() {
+		return repository.getAll()
+			.stream()
+			.map(StudentFactory::toStudentDto)
+			.toList();
 	}
 }
