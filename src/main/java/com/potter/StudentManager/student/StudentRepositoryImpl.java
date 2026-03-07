@@ -14,7 +14,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 	private final Map<String, Student> students;
 
 	@Override
-	public void add(final Student student) {
+	public void save(final Student student) {
 		students.put(student.getId(), student);
 	}
 

@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface StudentService {
 
-	void add(StudentDto studentDto);
+	void save(StudentDto studentDto);
 	StudentDto findById(String studentId);
 	StudentDto update(String id, StudentDto studentDto);
 	void delete(String studentId);

@@ -17,10 +17,10 @@ public class StudentServiceImpl implements StudentService{
 	private final StudentRepository repository;
 
 	@Override
-	public void add(final StudentDto studentDto) {
+	public void save(final StudentDto studentDto) {
 		Student student = toStudent(studentDto);
-		repository.add(student);
-		log.debug("Student with id: {} add", student.getId());
+		repository.save(student);
+		log.debug("Student with id: {} added", student.getId());
 	}
 
 	@Override
