@@ -32,10 +32,10 @@ public class StudentController {
 		service.save(request);
 	}
 
-	@PutMapping("/update/{id}")
+	@PutMapping("{id}")
 	public void update(
 		@PathVariable(value = "id") String studentId,
-		@RequestBody StudentDto request) {
+		@Validated @RequestBody StudentDto request) {
 		service.update(studentId, request);
 	}
 
