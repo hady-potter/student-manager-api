@@ -6,7 +6,7 @@ import java.util.Optional;
 public interface StudentRepository {
 	void add(final Student student);
 	Optional<Student> findById(final String studentId);
-	Optional<Student> update(final Student student);
+	void update(final Student student);
 	Optional<Student> delete(final String studentId);
 	List<Student> getAll();
 }

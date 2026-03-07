@@ -15,7 +15,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 
 	@Override
 	public void add(final Student student) {
-		students.put(student.id(), student);
+		students.put(student.getId(), student);
 	}
 
 	@Override
@@ -24,8 +24,8 @@ public class StudentRepositoryImpl implements StudentRepository{
 	}
 
 	@Override
-	public Optional<Student> update(final Student student) {
-		return Optional.ofNullable(students.put(student.id(), student));
+	public void update(final Student student) {
+		students.put(student.getId(), student);
 	}
 
 	@Override
