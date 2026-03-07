@@ -2,6 +2,7 @@ package com.potter.studentmanager.student;
 
 import com.potter.studentmanager.utils.StudentFactory;
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,6 +10,7 @@ import java.util.List;
 import static com.potter.studentmanager.utils.StudentFactory.*;
 
 @Service
+@Slf4j
 @AllArgsConstructor
 public class StudentServiceImpl implements StudentService{
 
@@ -16,7 +18,9 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public void add(final StudentDto studentDto) {
-		repository.add(toStudent(studentDto));
+		Student student = toStudent(studentDto);
+		repository.add(student);
+		log.debug("Student with id: {} add", student.getId());
 	}
 
 	@Override
@@ -42,6 +46,7 @@ public class StudentServiceImpl implements StudentService{
 	@Override
 	public void delete(final String studentId) {
 		repository.delete(studentId).orElseThrow();
+		log.debug("Student with ID: {} deleted", studentId);
 	}
 
 	@Override
