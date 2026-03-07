@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class StudentController {
 	}
 
 	@PostMapping
-	public void add(@RequestBody StudentDto request) {
+	public void add(@Validated @RequestBody StudentDto request) {
 		service.save(request);
 	}
 
