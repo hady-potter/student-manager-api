@@ -1,13 +1,13 @@
 package com.potter.studentmanager.student;
 
 import lombok.AllArgsConstructor;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-@Component
+@Repository
 @AllArgsConstructor
 public class StudentRepositoryImpl implements StudentRepository{
 
