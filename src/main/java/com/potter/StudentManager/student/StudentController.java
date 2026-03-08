@@ -29,6 +29,7 @@ public class StudentController {
 	}
 
 	@PostMapping
+	@ResponseStatus(HttpStatus.CREATED)
 	public void add(@Valid @RequestBody StudentDto request) {
 		service.save(request);
 	}
