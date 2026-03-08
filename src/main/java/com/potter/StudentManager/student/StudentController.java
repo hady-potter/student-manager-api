@@ -42,6 +42,7 @@ public class StudentController {
 		return ResponseEntity.ok().body(studentDto);
 	}
 
+	@ResponseStatus(HttpStatus.NO_CONTENT)
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable(value = "id") String studentId) {
 		service.delete(studentId);
