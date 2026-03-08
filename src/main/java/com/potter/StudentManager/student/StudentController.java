@@ -34,10 +34,11 @@ public class StudentController {
 	}
 
 	@PutMapping("{id}")
-	public void update(
+	public ResponseEntity<StudentDto> update(
 		@PathVariable(value = "id") String studentId,
 		@Validated @RequestBody StudentDto request) {
-		service.update(studentId, request);
+		StudentDto studentDto = service.update(studentId, request);
+		return ResponseEntity.ok().body(studentDto);
 	}
 
 	@DeleteMapping("{id}")
