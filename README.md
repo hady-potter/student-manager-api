@@ -59,6 +59,7 @@ This approach keeps **all logic related to the Student feature in one place**, m
 ---
 
 ## 📡 API Endpoints
+#### localhost:8080/app
 
 | Method | Endpoint         | Description        |
 | ------ | ---------------- | ------------------ |
