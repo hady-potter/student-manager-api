@@ -1,5 +1,6 @@
 package com.potter.studentmanager.student;
 
+import com.potter.studentmanager.exception.StudentNotFoundException;
 import com.potter.studentmanager.utils.StudentFactory;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,14 +26,14 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public StudentDto findById(final String studentId) {
-		Student foundStudent =  repository.findById(studentId).orElseThrow();
+		Student foundStudent =  repository.findById(studentId).orElseThrow(StudentNotFoundException::new);
 		return toStudentDto(foundStudent);
 	}
 
 	@Override
 	public StudentDto update(final String id, final StudentDto studentDto) {
 
-		Student foundStudent = repository.findById(id).orElseThrow();
+		Student foundStudent = repository.findById(id).orElseThrow(StudentNotFoundException::new);
 
 		foundStudent.setName(studentDto.name());
 		foundStudent.setEmail(studentDto.email());
@@ -45,7 +46,7 @@ public class StudentServiceImpl implements StudentService{
 
 	@Override
 	public void delete(final String studentId) {
-		repository.delete(studentId).orElseThrow();
+		repository.delete(studentId).orElseThrow(StudentNotFoundException::new);
 		log.debug("Student with ID: {} deleted", studentId);
 	}
 

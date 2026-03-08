@@ -1,5 +1,6 @@
 package com.potter.studentmanager.student;
 
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Value;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class StudentController {
 	}
 
 	@PostMapping
-	public void add(@Validated @RequestBody StudentDto request) {
+	public void add(@Valid @RequestBody StudentDto request) {
 		service.save(request);
 	}
 

@@ -20,7 +20,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 
 	@Override
 	public Optional<Student> findById(final String studentId) {
-		return Optional.of(students.get(studentId));
+		return Optional.ofNullable(students.get(studentId));
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class StudentRepositoryImpl implements StudentRepository{
 
 	@Override
 	public Optional<Student> delete(String studentId) {
-		return Optional.of(students.remove(studentId));
+		return Optional.ofNullable(students.remove(studentId));
 	}
 
 	@Override
