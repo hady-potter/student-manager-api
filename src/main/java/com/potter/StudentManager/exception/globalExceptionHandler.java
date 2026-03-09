@@ -25,13 +25,13 @@ public class globalExceptionHandler {
 	}
 
 	@ExceptionHandler(StudentNotFoundException.class)
-	public ResponseEntity<?> handleStudentNotFoundException(StudentNotFoundException ex) {
+	public ResponseEntity<StudentNotFoundResponse> handleStudentNotFoundException(StudentNotFoundException ex) {
 		StudentNotFoundResponse response = new StudentNotFoundResponse(
 			LocalDateTime.now(),
 			ex.getCode(),
-			HttpStatus.BAD_REQUEST.value(),
+			HttpStatus.NOT_FOUND.value(),
 			ex.getMessage()
 		);
-		return ResponseEntity.badRequest().body(response);
+		return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
 	}
 }
